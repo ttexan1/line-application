@@ -38,11 +38,13 @@ ActiveRecord::Schema.define(version: 20180227051804) do
   end
 
   create_table "talk_rooms", force: :cascade do |t|
-    t.integer "group_id", null: false
+    t.integer "group_id"
+    t.integer "relationship_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_talk_rooms_on_group_id"
+    t.index ["relationship_id"], name: "index_talk_rooms_on_relationship_id"
   end
 
   create_table "users", force: :cascade do |t|
