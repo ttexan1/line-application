@@ -7,10 +7,11 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    .side-bar
-      .box  = link_to "友達", relationships_path
-      .box = link_to "トーク", talk_rooms_path
-      .box = link_to "編集", user_path(current_user)
-      .box.under = link_to "...", "#"
+    - if user_signed_in?
+      .side-bar
+        .box  = link_to "友達", relationships_path
+        .box = link_to "トーク", talk_rooms_path
+        .box = link_to "編集", user_path(current_user)
+        .box.under = link_to "...", "#"
     .body
       = yield

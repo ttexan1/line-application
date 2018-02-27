@@ -1,10 +1,13 @@
 class RelationshipsController < ApplicationController
   def index
-    @friends = current_user.friends
-    logger.debug(@friends)
+    @q = User.ransack(params[:q])
+    @users = @q.result
+    @from_friends = current_user.from_users
+    @to_friends = current_user.to_users
+    @groups = current_user.groups
   end
   def create
-    @relationships = Relationship.new(relation_params)
+    # @relationship = Relationship.find_or_init_by(current_user.id,to_user)
     if @relationship.save
       redirect_to talk_rooms_path
     end

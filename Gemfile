@@ -23,6 +23,7 @@ gem 'seed-fu'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :user, controllers: {
        sessions: 'user/sessions'
   }
-  resources :users, except: [:index, :create]
+  resources :users, except: [:create]
   resources :relationships
   resources :groups
   root "talk_rooms#index"
