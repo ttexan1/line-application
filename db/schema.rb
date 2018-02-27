@@ -65,13 +65,13 @@ ActiveRecord::Schema.define(version: 20180227051804) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "usersgroups", force: :cascade do |t|
+  create_table "users_groups", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_usersgroups_on_group_id"
-    t.index ["user_id"], name: "index_usersgroups_on_user_id"
+    t.index ["group_id"], name: "index_users_groups_on_group_id"
+    t.index ["user_id"], name: "index_users_groups_on_user_id"
   end
 
 end
