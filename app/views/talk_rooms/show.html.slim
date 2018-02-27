@@ -1,1 +1,10 @@
-p talk room show
+.talk-room-show
+  p talk room show
+  - @messages.each do |message|
+    - if message.user == current_user
+      .green
+        p = message.content
+    - else
+      p = message.user.name
+      .white
+        p = message.content

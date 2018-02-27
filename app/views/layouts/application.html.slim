@@ -7,4 +7,9 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = yield
+    .side-bar
+      .box  = link_to "友達", "#"
+      .box = link_to "トーク", talk_rooms_path
+      .box.under = link_to "...", "#"
+    .body
+      = yield
