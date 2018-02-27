@@ -1,0 +1,6 @@
+- talk_room ||= nil
+- @message ||= Message.new
+
+= simple_form_for @message, url: talk_room_messages_path(talk_room_id: talk_room), method: :post do |f|
+  = f.input :content
+  = f.submit

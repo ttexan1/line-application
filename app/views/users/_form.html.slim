@@ -1,0 +1,4 @@
+= simple_form_for @user, url: user_path(current_user), method: :put do |f|
+  = f.input :name
+  = f.input :thumbnail
+  = f.submit class: "btn btn-default"

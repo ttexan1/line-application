@@ -6,9 +6,24 @@ class User < ApplicationRecord
   has_many :groups, through: :users_groups
   has_many :messages
 
-  # has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
-  # has_many :followings, through: :following_relationships
+  has_many :from_user_relationships, foreign_key: "to_user_id", class_name: "Relationship", dependent: :destroy
+  has_many :from_users, through: :from_user_relationships
+  has_many :to_user_relationships, foreign_key: "from_user_id", class_name: "Relationship", dependent: :destroy
+  has_many :to_users, through: :to_user_relationships
+
+  # def following?(other_user)
+  #   following_relationships.find_by(following_id: other_user.id)
+  # end
   #
-  # has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
-  # has_many :followers, through: :follower_relationships
+  # def follow!(other_user)
+  #   following_relationships.create!(following_id: other_user.id)
+  # end
+  #
+  # def unfollow!(other_user)
+  #   following_relationships.find_by(following_id: other_user.id).destroy
+  # end
+
+  def friends
+     from_user_relationships + to_user_relationships
+  end
 end

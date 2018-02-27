@@ -8,8 +8,9 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .side-bar
-      .box  = link_to "友達", "#"
+      .box  = link_to "友達", relationships_path
       .box = link_to "トーク", talk_rooms_path
+      .box = link_to "編集", user_path(current_user)
       .box.under = link_to "...", "#"
     .body
       = yield
