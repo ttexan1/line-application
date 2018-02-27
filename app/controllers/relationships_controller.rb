@@ -6,6 +6,9 @@ class RelationshipsController < ApplicationController
     @to_friends = current_user.to_users
     @groups = current_user.groups
   end
+  def show
+    @friend = User.find(params[:id])
+  end
   def create
     # @relationship = Relationship.find_or_init_by(current_user.id,to_user)
     if @relationship.save
