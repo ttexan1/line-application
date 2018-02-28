@@ -26,5 +26,5 @@ end
 Relationship.seed do |s|
   s.id = 6
   s.from_user_id = 3
-  s.to_user_id = 1
+  s.to_user_id = 4
 end

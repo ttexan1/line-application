@@ -10,7 +10,6 @@ class RelationshipsController < ApplicationController
   def show
     @friend = User.find(params[:id])
     @relationship = Relationship.find_by_from_or_to(@friend, current_user)
-    @talk_room = @relationship.talk_room
   end
   def new
     friend_ids = current_user.friends.pluck(:id)
