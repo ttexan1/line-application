@@ -1,8 +1,12 @@
-= search_form_for @q do |f|
+= search_form_for @q, url: new_relationship_path do |f|
   .form = f.search_field :name_cont, class: "form1", placeholder: '名前'
   .action = f.submit "検索する", class: "btn"
 
 - @users.each do |user|
   p = user.name
-  - simple_from_for @relationship, url:relationships_path, method: :post do |f|
+  = simple_form_for @relationship, url: relationships_path, method: :post do |f|
+    = f.hidden_field :to_user_id, value: user.id
     = f.hidden_field :status, value: 1
+    = f.simple_fields_for :talk_room do |a|
+      = a.hidden_field :name, value: "トークルーム"
+    = f.submit
