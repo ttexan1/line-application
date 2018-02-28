@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, except: [:create]
   resources :relationships
   resources :groups
-  root "talk_rooms#index"
+  root "relationships#index"
   resources :talk_rooms, except: [:update, :destroy] do
     resources :messages, only: [:index, :create]
   end

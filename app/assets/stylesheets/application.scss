@@ -43,3 +43,12 @@
  .body{
    margin-left: 60px;
  }
+
+ .boxs{
+   width: 100%;
+   .box{
+     line-height: 60px;
+     height: 60px;
+     border-bottom: 1px solid #aaa;
+   }
+ }

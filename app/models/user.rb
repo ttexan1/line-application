@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_many :to_user_relationships, foreign_key: "from_user_id", class_name: "Relationship", dependent: :destroy
   has_many :to_users, through: :to_user_relationships
 
+  def friends
+     from_users + to_users
+  end
+  
   # def following?(other_user)
   #   following_relationships.find_by(following_id: other_user.id)
   # end
@@ -23,7 +27,5 @@ class User < ApplicationRecord
   #   following_relationships.find_by(following_id: other_user.id).destroy
   # end
 
-  def friends
-     from_user_relationships + to_user_relationships
-  end
+
 end

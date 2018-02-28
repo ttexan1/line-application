@@ -9,10 +9,11 @@ html
   body
     - if user_signed_in?
       .side-bar
-        .box  = link_to "友達", relationships_path
+        .box  = link_to "自分・友達", relationships_path
         .box = link_to "トーク", talk_rooms_path
         .box = link_to "編集", user_path(current_user)
         .box = link_to "グループ", new_group_path
+        .box = link_to "ログアウト", destroy_user_session_path
         .box.under = link_to "...", "#"
     .body
       = yield

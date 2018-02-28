@@ -1,4 +1,4 @@
 p グループ showページ
 
 p = @group.name
-p = link_to @group.talk_room.name, '#'
+p = link_to "トーク画面へ", talk_room_path(@group.talk_room)

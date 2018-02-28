@@ -2,12 +2,18 @@ class RelationshipsController < ApplicationController
   def index
     @q = User.ransack(params[:q])
     @users = @q.result
-    @from_friends = current_user.from_users
-    @to_friends = current_user.to_users
+    @friend_ids = current_user.friends.pluck(:id)
+    @friends = User.where(id: @friend_ids)
     @groups = current_user.groups
   end
   def show
     @friend = User.find(params[:id])
+    @relationship = Relationship.find_by(from_user_id: @friend.id, to_user_id: current_user.id)
+    logger.debug(@relationship.talk_room)
+    logger.debug("@relationship.id")
+    # || Relationship.find_by(from_user_id: @friend.id, to_user_id: current_user.id)
+    @talk_room = @relationship.talk_room
+
   end
   def create
     # @relationship = Relationship.find_or_init_by(current_user.id,to_user)

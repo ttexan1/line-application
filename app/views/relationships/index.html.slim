@@ -1,10 +1,10 @@
-p this is the index of relationships
-/- @friends.each do |friend|
-/  p = link_to friend.name, relationship_path(friend)
-= link_to current_user.name, user_path(current_user)
-= render 'groups/list', groups: @groups
-
-- @from_friends.each do |friend|
-  p = link_to friend.name, relationship_path(friend)
-- @to_friends.each do |friend|
-  p = link_to friend.name, relationship_path(friend)
+.relationships-index
+  p this is the index of relationships
+  /- @friends.each do |friend|
+  /  p = link_to friend.name, relationship_path(friend)
+  .boxs
+    .box = link_to current_user.name, user_path(current_user)
+  .boxs = render 'groups/list', groups: @groups
+  .boxs
+    - @friends.each do |friend|
+      .box = link_to friend.name, relationship_path(friend)
