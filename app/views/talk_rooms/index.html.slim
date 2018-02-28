@@ -4,3 +4,6 @@ p talk room index
 .boxs
   - @groups.each do |group|
     .box = link_to group.talk_room.name, talk_room_path(group.talk_room)
+
+  - @relationships.each do |relationship|
+    .box = link_to relationship.talk_room.name, talk_room_path(relationship.talk_room)

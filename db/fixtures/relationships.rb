@@ -28,8 +28,3 @@ Relationship.seed do |s|
   s.from_user_id = 3
   s.to_user_id = 1
 end
-Relationship.seed do |s|
-  s.id = 7
-  s.from_user_id = 3
-  s.to_user_id = 2
-end
