@@ -2,13 +2,14 @@
   p this is the groups index
   .boxs
     .box
-      | あなたは
-      = link_to current_user.name, user_path(current_user)
-      |です。
+      .image = link_to image_tag(current_user.thumbnail), user_path(current_user)
+      .name = link_to current_user.name, user_path(current_user)
   .boxs
+    h2 グループ
     - @groups.each do |group|
-      - if group.status != 0
+      - if group.status == 'more'
         .box = link_to group.name, group_path(group)
       - else
-        p wowow
-        .box = link_to group.another_user(current_user).name, group_path(group)
+        .box
+          .image = image_tag(group.another_user(current_user).thumbnail)
+          .name = link_to group.another_user(current_user).name, group_path(group)

@@ -1,11 +1,11 @@
 class MessagesController < ApplicationController
   def create
-    @talk_room = TalkRoom.find(params[:talk_room_id])
+    @group = Group.find(params[:group_id])
     @message = Message.new(message_params)
     @message.user_id = current_user.id
-    @message.talk_room_id = @talk_room.id
+    @message.group_id = @group.id
     if @message.save
-      redirect_to talk_room_path(id: @talk_room)
+      redirect_to talking_group_path(@group)
     else
     end
   end

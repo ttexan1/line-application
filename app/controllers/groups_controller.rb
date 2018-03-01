@@ -1,11 +1,11 @@
 class GroupsController < ApplicationController
   def index
-    @groups = current_user.groups.order(:status)
+    @groups = current_user.groups.order('status DESC')
   end
   def show
     @group = current_user.groups.find(params[:id])
-    if @group.status == 0
-      @user = @group.another_user(current_user)
+    if @group.status == 'pair'
+      @group = @group.another_user(current_user)
     end
   end
 
@@ -17,8 +17,12 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to talk_rooms_path
+      redirect_to groups_path
     end
+  end
+  def talking
+    @group = Group.find(params[:id])
+    @messages = @group.messages
   end
 
   private

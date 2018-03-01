@@ -1,6 +1,6 @@
 = simple_form_for @group, url: groups_path, method: :post do |f|
   = f.input :name
-  = f.hidden_field :status, value: 1
+  = f.hidden_field :status, value: :more
   = f.simple_fields_for :users_groups do |a|
     = a.input :user_id
   = f.simple_fields_for :users_groups do |a|
