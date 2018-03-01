@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   def index
-    @groups = current_user.groups.order('status DESC')
+    @more_groups = current_user.groups.where(status: :more)
+    @pair_groups = current_user.groups.where(status: :pair)
   end
   def show
     @group = current_user.groups.find(params[:id])
