@@ -11,21 +11,10 @@ class User < ApplicationRecord
   has_many :to_user_relationships, foreign_key: "from_user_id", class_name: "Relationship", dependent: :destroy
   has_many :to_users, through: :to_user_relationships
 
+  # validates :name, presence: true
+
   def friends
      from_users + to_users
   end
-
-  # def following?(other_user)
-  #   following_relationships.find_by(following_id: other_user.id)
-  # end
-  #
-  # def follow!(other_user)
-  #   following_relationships.create!(following_id: other_user.id)
-  # end
-  #
-  # def unfollow!(other_user)
-  #   following_relationships.find_by(following_id: other_user.id).destroy
-  # end
-
 
 end

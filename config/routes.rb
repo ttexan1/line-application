@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   devise_for :user, controllers: {
        sessions: 'user/sessions'
   }
-  resources :users, except: [:create]
-  resources :relationships
+  resources :users, only: [:update, :edit]
+  resources :relationships, only: [:new, :show, :create]
   resources :groups do
-    member do
+    collection do
       get 'talking'
     end
     resources :messages, only: [:index, :create]

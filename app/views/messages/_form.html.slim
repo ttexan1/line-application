@@ -1,6 +1,6 @@
 - group ||= nil
 - @message ||= Message.new
 
-= simple_form_for @message, url: group_messages_path(group_id: group.id), method: :post do |f|
-  = f.input :content
-  = f.submit
+= simple_form_for @message, url: group_messages_path(group_id: group.id), method: :post, remote: true do |f|
+  = f.input :content, label_html: {class: 'label'}, input_html: { class: 'content-area'}
+  = f.submit "送信", class: "btn"

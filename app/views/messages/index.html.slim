@@ -1,0 +1,11 @@
+.group.talking
+  .messages
+    - @messages.each do |message|
+      .message
+        - if message.user == current_user
+          .green
+            p = message.content
+        - else
+          .white
+            p = message.content
+  = render 'form',group: @group

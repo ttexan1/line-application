@@ -9,6 +9,9 @@ class UsersController < ApplicationController
       redirect_to groups_path
     end
   end
+  def edit
+    @user = current_user
+  end
 
   private
   def user_params

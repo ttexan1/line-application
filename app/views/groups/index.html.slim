@@ -2,7 +2,7 @@
   .boxs
     .box
       .image = image_tag(current_user.thumbnail) if current_user.thumbnail
-      .name = link_to current_user.name, user_path(current_user)
+      .name = link_to current_user.name, edit_user_path(current_user)
   .boxs
     h2 グループ
     - @more_groups.each do |group|

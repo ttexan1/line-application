@@ -24,8 +24,7 @@ class GroupsController < ApplicationController
     end
   end
   def talking
-    @group = Group.find(params[:id])
-    @messages = @group.messages
+    @groups = current_user.groups.order(:updated_at)
   end
 
   private
