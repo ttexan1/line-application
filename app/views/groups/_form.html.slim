@@ -1,8 +1,6 @@
 - group ||= Group.new
-- relationship ||= nil
 - friend ||= nil
 - group.users_groups.build
-- group.build_talk_room
 
 = simple_form_for group, url: groups_path, method: :post do |f|
   = f.hidden_field :name, value: "pair"
@@ -11,6 +9,4 @@
     = a.hidden_field :user_id, value: current_user.id
   = f.simple_fields_for :users_groups do |a|
     = a.hidden_field :user_id, value: friend.id
-  = f.simple_fields_for :talk_room do |b|
-    = b.hidden_field :name, value: "pair"
   = f.submit "トークを開始する"

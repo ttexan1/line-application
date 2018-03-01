@@ -1,17 +1,21 @@
 class GroupsController < ApplicationController
+  def index
+    @groups = current_user.groups.order(:status)
+  end
   def show
-    @group = Group.find(params[:id])
+    @group = current_user.groups.find(params[:id])
+    if @group.status == 0
+      @user = @group.another_user(current_user)
+    end
   end
 
   def new
     @group = Group.new
     @group.users_groups.build
-    @group.build_talk_room
   end
 
   def create
     @group = Group.new(group_params)
-    @group.talk_room.name = @group.name
     if @group.save
       redirect_to talk_rooms_path
     end
@@ -24,11 +28,6 @@ class GroupsController < ApplicationController
         users_groups_attributes:[
           :id,
           :user_id,
-          :group_id
-        ],
-        talk_room_attributes:[
-          :id,
-          :name,
           :group_id
         ]
       )

@@ -1,7 +1,7 @@
 class CreateMessages < ActiveRecord::Migration[5.1]
   def change
     create_table :messages do |t|
-      t.integer :talk_room_id, null: false
+      t.integer :group_id, null: false
       t.integer :user_id, null: false
       t.text :content
       t.integer :read_count, default: 0

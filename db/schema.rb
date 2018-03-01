@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20180227051804) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "talk_room_id", null: false
+    t.integer "group_id", null: false
     t.integer "user_id", null: false
     t.text "content"
     t.integer "read_count", default: 0
@@ -37,14 +37,6 @@ ActiveRecord::Schema.define(version: 20180227051804) do
     t.datetime "updated_at", null: false
     t.index ["from_user_id"], name: "index_relationships_on_from_user_id"
     t.index ["to_user_id"], name: "index_relationships_on_to_user_id"
-  end
-
-  create_table "talk_rooms", force: :cascade do |t|
-    t.integer "group_id"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_talk_rooms_on_group_id"
   end
 
   create_table "users", force: :cascade do |t|

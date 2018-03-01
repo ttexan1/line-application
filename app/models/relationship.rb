@@ -4,7 +4,6 @@ class Relationship < ApplicationRecord
   validates :from_user_id, presence: true
   validates :to_user_id, presence: true
 
-  enum status: { pair: 0, more: 1 }
 
   def self.all_relationships(a)
     self.where(from_user_id: a.id).or(Relationship.where(to_user_id: a.id)).includes(:talk_room)
@@ -15,4 +14,10 @@ class Relationship < ApplicationRecord
     self.find_by(from_user_id: user_b.id, to_user_id: user_a.id)
   end
 
+  def create_group
+    group = Group.create(status: :pair, name: "pair")
+    group_id = group.id
+    UsersGroup.create(group_id: group_id, user_id: self.from_user_id)
+    UsersGroup.create(group_id: group_id, user_id: self.to_user_id)
+  end
 end

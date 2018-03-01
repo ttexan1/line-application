@@ -1,7 +1,6 @@
 class RelationshipsController < ApplicationController
   def index
     @friend_ids = current_user.friends.pluck(:id)
-    # ここ友達が一位に定まればプラックいらないのか
     @friends = User.where(id: @friend_ids)
     @q = User.where(id: @friend_ids).ransack(params[:q])
     @users = @q.result
@@ -19,10 +18,10 @@ class RelationshipsController < ApplicationController
   end
   def create
     @relationship = Relationship.new(relation_params)
-    # (この時関係はないがグループも一緒に作成)
     @relationship.from_user_id = current_user.id
+    @relationship.create_group
     if @relationship.save
-      redirect_to talk_rooms_path
+      redirect_to groups_path
     end
   end
 
@@ -30,5 +29,15 @@ class RelationshipsController < ApplicationController
   private
   def relation_params
     params.require(:relationship).permit(:status, :to_user_id)
+  end
+  def group_params
+    params.require(:group).permit(
+      :name, :status,
+      users_groups_attributes:[
+        :id,
+        :user_id,
+        :group_id
+      ]
+    )
   end
 end

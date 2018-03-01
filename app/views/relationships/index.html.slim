@@ -7,7 +7,6 @@
       | あなたは
       = link_to current_user.name, user_path(current_user)
       |です。
-  .boxs = render 'groups/list', groups: @groups
   .boxs
     - @friends.each do |friend|
       .box = link_to friend.name, relationship_path(friend)
