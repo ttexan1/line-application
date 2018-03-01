@@ -1,15 +1,14 @@
+.relationship.new
+  = search_form_for @q, url: new_relationship_path do |f|
+    .form = f.search_field :name_cont, class: "form1", placeholder: '名前'
+    .action = f.submit "検索する", class: "btn"
 
-
-= search_form_for @q, url: new_relationship_path do |f|
-  .form = f.search_field :name_cont, class: "form1", placeholder: '名前'
-  .action = f.submit "検索する", class: "btn"
-
-- @users.each do |user|
-  .boxs
-    .box
-      .image = image_tag(user.thumbnail) if user.thumbnail
-      .name = user.name
-      = simple_form_for @relationship, url: relationships_path, method: :post do |f|
-        = f.hidden_field :to_user_id, value: user.id
-        = f.hidden_field :status, value: 0
-        = f.submit
+  - @users.each do |user|
+    .boxs
+      .box
+        .image = image_tag(user.thumbnail) if user.thumbnail
+        .name = user.name
+        = simple_form_for @relationship, url: relationships_path, method: :post do |f|
+          = f.hidden_field :to_user_id, value: user.id
+          = f.hidden_field :status, value: 0
+          = f.submit
