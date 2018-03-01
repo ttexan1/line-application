@@ -1,11 +1,5 @@
 class RelationshipsController < ApplicationController
-  def index
-    @friend_ids = current_user.friends.pluck(:id)
-    @friends = User.where(id: @friend_ids)
-    @q = User.where(id: @friend_ids).ransack(params[:q])
-    @users = @q.result
-    @groups = current_user.groups.order(:status)
-  end
+
   def show
     @friend = User.find(params[:id])
     @relationship = Relationship.find_by_from_or_to(@friend, current_user)
