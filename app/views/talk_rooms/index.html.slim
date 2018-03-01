@@ -1,6 +1,0 @@
-p talk room index
-.boxs
-  .box = @user.name
-.boxs
-  - @groups.each do |group|
-    .box = link_to group.talk_room.name, talk_room_path(group.talk_room)
