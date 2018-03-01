@@ -1,15 +1,16 @@
 .group.index
-  p this is the groups index
   .boxs
     .box
-      .image = link_to image_tag(current_user.thumbnail), user_path(current_user)
+      .image = image_tag(current_user.thumbnail) if current_user.thumbnail
       .name = link_to current_user.name, user_path(current_user)
   .boxs
     h2 グループ
     - @more_groups.each do |group|
-      .box = link_to group.name, group_path(group)
+      .box
+        .image = image_tag(group.thumbnail) if group.thumbnail
+        .name = link_to group.name, group_path(group)
     h2 友達
     - @pair_groups.each do |group|
       .box
-        .image = image_tag(group.another_user(current_user).thumbnail)
+        .image = image_tag(group.another_user(current_user).thumbnail) if group.another_user(current_user).thumbnail
         .name = link_to group.another_user(current_user).name, group_path(group)

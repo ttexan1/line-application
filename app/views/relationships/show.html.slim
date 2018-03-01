@@ -3,11 +3,4 @@
   | 友達
   = @friend.name
   |です
-  /もし初めてのトークになるならここにグループを作る処理を書かないといけない。
-
   = render 'groups/form', friend: @friend
-
-
-  /p = link_to @friend.name + "とトーク" , talk_room_path(@friend)
-  /ユーザー１とトークをしたことがあるなら、トークルームのshowパスへ
-  /渡す引数はgroup.relationshipの一択

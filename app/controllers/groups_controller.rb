@@ -6,7 +6,9 @@ class GroupsController < ApplicationController
   def show
     @group = current_user.groups.find(params[:id])
     if @group.status == 'pair'
-      @group = @group.another_user(current_user)
+      @user = @group.another_user(current_user)
+    else
+      @user = @group
     end
   end
 

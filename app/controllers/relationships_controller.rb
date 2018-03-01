@@ -12,6 +12,7 @@ class RelationshipsController < ApplicationController
   end
   def new
     friend_ids = current_user.friends.pluck(:id)
+    friend_ids.push(current_user.id)
     @q = User.where.not(id: friend_ids).ransack(params[:q])
     @users = @q.result
     @relationship = Relationship.new

@@ -13,9 +13,10 @@
 ActiveRecord::Schema.define(version: 20180227051804) do
 
   create_table "groups", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name", default: ""
     t.integer "member_count"
-    t.integer "status"
+    t.integer "status", null: false
+    t.string "thumbnail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
