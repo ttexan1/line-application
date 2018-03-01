@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @user = current_user
     update = @user.update(user_params)
     if @user.save
-      redirect_to talk_rooms_path
+      redirect_to groups_path
     end
   end
 

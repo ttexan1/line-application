@@ -11,8 +11,7 @@ class RelationshipsController < ApplicationController
     @relationship = Relationship.find_by_from_or_to(@friend, current_user)
   end
   def new
-    friend_ids = current_user.friends.pluck(:id)
-    friend_ids.push(current_user.id)
+    friend_ids = current_user.friends.pluck(:id).push(current_user.id)
     @q = User.where.not(id: friend_ids).ransack(params[:q])
     @users = @q.result
     @relationship = Relationship.new
@@ -30,15 +29,5 @@ class RelationshipsController < ApplicationController
   private
   def relation_params
     params.require(:relationship).permit(:status, :to_user_id)
-  end
-  def group_params
-    params.require(:group).permit(
-      :name, :status,
-      users_groups_attributes:[
-        :id,
-        :user_id,
-        :group_id
-      ]
-    )
   end
 end
