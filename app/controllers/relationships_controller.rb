@@ -5,7 +5,7 @@ class RelationshipsController < ApplicationController
     @friends = User.where(id: @friend_ids)
     @q = User.where(id: @friend_ids).ransack(params[:q])
     @users = @q.result
-    @groups = current_user.groups
+    @groups = current_user.groups.order(:status)
   end
   def show
     @friend = User.find(params[:id])
@@ -19,6 +19,7 @@ class RelationshipsController < ApplicationController
   end
   def create
     @relationship = Relationship.new(relation_params)
+    # (この時関係はないがグループも一緒に作成)
     @relationship.from_user_id = current_user.id
     if @relationship.save
       redirect_to talk_rooms_path

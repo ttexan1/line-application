@@ -1,4 +1,8 @@
 - groups ||= []
 
 - groups.each do |group|
-  .box = link_to group.name, group_path(group)
+  - if group.status != 0
+    .box = link_to group.name, group_path(group)
+  - else
+    p wowow
+    .box = link_to group.another_user(current_user).name, group_path(group)

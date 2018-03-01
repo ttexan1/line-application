@@ -14,7 +14,7 @@ class User < ApplicationRecord
   def friends
      from_users + to_users
   end
-  
+
   # def following?(other_user)
   #   following_relationships.find_by(following_id: other_user.id)
   # end

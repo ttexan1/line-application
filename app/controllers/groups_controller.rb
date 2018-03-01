@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    2.times {@group.users_groups.build}
+    @group.users_groups.build
     @group.build_talk_room
   end
 
@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
   private
     def group_params
       params.require(:group).permit(
-        :name, :status
+        :name, :status,
         users_groups_attributes:[
           :id,
           :user_id,
