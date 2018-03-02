@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20180227051804) do
   create_table "messages", force: :cascade do |t|
     t.integer "group_id", null: false
     t.integer "user_id", null: false
-    t.text "content"
+    t.text "content", null: false
     t.integer "read_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

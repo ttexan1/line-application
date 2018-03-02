@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :to_user_relationships, foreign_key: "from_user_id", class_name: "Relationship", dependent: :destroy
   has_many :to_users, through: :to_user_relationships
 
-  # validates :name, presence: true
+  validates :name, presence: true
 
   def friends
      from_users + to_users

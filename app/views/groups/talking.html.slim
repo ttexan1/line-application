@@ -3,9 +3,8 @@
     h2 トーク一覧
     - @groups.each do |group|
       .box
-        - if group.status == "more"
-          .image = image_tag(group.thumbnail) if group.thumbnail
-          .name = link_to group.name, group_messages_path(group)
-        - else
-          .image = image_tag(group.another_user(current_user).thumbnail) if group.another_user(current_user).thumbnail
-          .name = link_to group.another_user(current_user).name, group_messages_path(group)
+        .mask = link_to "", group_messages_path(group)
+        .image = image_tag(group.room(current_user).thumbnail) if group.room(current_user).thumbnail
+        .contents
+          .name = group.room(current_user).name
+          .last_msg = group.messages.last.content

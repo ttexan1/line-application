@@ -4,11 +4,21 @@ class Group < ApplicationRecord
   has_many :messages
   accepts_nested_attributes_for :users_groups, allow_destroy: true,reject_if: :all_blank
 
+  validates :status, presence: true
+
   enum status: { pair: 0, more: 1 }
 
   def another_user(current_user)
     another = self.users_groups.where.not(user_id: current_user.id)
     return another.first.user
+  end
+
+  def room(current_user)
+    if self.status == 'pair'
+      user = self.another_user(current_user)
+    else
+      user = self
+    end
   end
 
 end

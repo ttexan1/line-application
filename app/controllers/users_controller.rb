@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     update = @user.update(user_params)
     if @user.save
       redirect_to groups_path
+    else
+      render 'edit'
     end
   end
   def edit

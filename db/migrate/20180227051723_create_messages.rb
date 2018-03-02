@@ -3,7 +3,7 @@ class CreateMessages < ActiveRecord::Migration[5.1]
     create_table :messages do |t|
       t.integer :group_id, null: false
       t.integer :user_id, null: false
-      t.text :content
+      t.text :content, null: false
       t.integer :read_count, default: 0
 
       t.timestamps
