@@ -7,27 +7,38 @@
     margin: 0 10px 100px;
     .message{
       position: relative;
-      clear: both;
       height: 80px;
       .green{
         p{
-          position: absolute;
           right: 0;
-          padding: 10px;
           background: rgb(190,241,140);
-          border-radius: 7px;
-
         }
       }
       .white{
-        p{
+        position: relative;
+        .image{
           position: absolute;
           left: 0;
-          padding: 10px;
-          background: rgb(228,232,235);
-          border-radius: 7px;
-
+          width: 40px;
+          height: 40px;
+          border-radius: 20px;
+          background: #ddd;
+          overflow: hidden;
         }
+        .post-man{
+          position: absolute;
+          left: 45px;
+        }
+        p{
+          top: 15px;
+          left: 45px;
+          background: rgb(228,232,235);
+        }
+      }
+      p{
+        position: absolute;
+        padding: 10px;
+        border-radius: 7px;
       }
     }
   }
