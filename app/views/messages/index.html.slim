@@ -1,14 +1,8 @@
 .group.talking
   h2 = @room.name
-  .messages
-    - @messages.each do |message|
-      .message
-        - if message.user == current_user
-          .green
-            p = message.content
-        - else
-          .white
-            .image = image_tag(message.user.thumbnail) if message.user.thumbnail
-            .post-man = message.user.name
-            p = message.content
-  = render 'form',group: @group
+  .messages#messages
+    = render @messages
+
+  #paginator = link_to_next_page @messages, 'next',remote: true
+
+  /= render 'form',group: @group

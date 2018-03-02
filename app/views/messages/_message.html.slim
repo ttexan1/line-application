@@ -1,0 +1,9 @@
+.message
+  - if message.user == current_user
+    .green
+      p = message.content
+  - else
+    .white
+      .image = image_tag(message.user.thumbnail) if message.user.thumbnail
+      .post-man = message.user.name
+      p = message.content

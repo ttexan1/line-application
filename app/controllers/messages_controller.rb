@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   def index
     @group = Group.find(params[:group_id])
-    @messages = @group.messages
+    @messages = @group.messages.page(params[:page]).per(5)
     @room = @group.room(current_user)
   end
   def create
