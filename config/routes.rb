@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   root "groups#index"
   devise_for :user, controllers: {
-       sessions: 'user/sessions'
+    registrations: 'user/registrations',
+    sessions: 'user/sessions'
   }
   resources :users, only: [:update, :edit]
   resources :relationships, only: [:new, :show, :create]
