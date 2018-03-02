@@ -21,4 +21,12 @@ class Group < ApplicationRecord
     end
   end
 
+  def other_member(current_user)
+    if self.status == 'more'
+      others = self.users.where.not(id: current_user.id)
+    else
+      others = nil
+    end
+  end
+
 end

@@ -1,16 +1,16 @@
 .group.index
   .boxs
-    .box
+    .box.me
       .image = image_tag(current_user.thumbnail) if current_user.thumbnail
       .name = link_to current_user.name, edit_user_path(current_user)
   .boxs
     h2 グループ
     - @more_groups.each do |group|
-      .box
+      .box.group
         .image = image_tag(group.thumbnail) if group.thumbnail
         .name = link_to group.name, group_path(group)
     h2 友達
     - @pair_groups.each do |group|
-      .box
-        .image = image_tag(group.another_user(current_user).thumbnail) if group.another_user(current_user).thumbnail
-        .name = link_to group.another_user(current_user).name, group_path(group)
+      .box.friend
+        .image = image_tag(group.room(current_user).thumbnail) if group.room(current_user).thumbnail
+        .name = link_to group.room(current_user).name, relationship_path(group.room(current_user))

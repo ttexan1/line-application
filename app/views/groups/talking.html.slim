@@ -7,4 +7,4 @@
         .image = image_tag(group.room(current_user).thumbnail) if group.room(current_user).thumbnail
         .contents
           .name = group.room(current_user).name
-          .last_msg = group.messages.last.content
+          .last_msg = group.messages.last.content if group.messages.last

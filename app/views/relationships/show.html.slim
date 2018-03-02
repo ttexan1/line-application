@@ -1,6 +1,5 @@
 .relationship.show
-  p
-  | 友達
-  = @friend.name
-  |です
-  = render 'groups/form', friend: @friend
+  .boxs
+    .box
+      .image = image_tag(@friend.thumbnail) if @friend.thumbnail
+      p = @friend.name
