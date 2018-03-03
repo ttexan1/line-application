@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :thumbnail)
+    params.require(:user).permit(:name, :thumbnail, :thumbnail_cache, :remove_thumbnail)
   end
 
 end
