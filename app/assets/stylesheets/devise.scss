@@ -1,24 +1,79 @@
 .body-devise{
+  h1{
+    font-size: 35px;
+    margin: 40px auto;
+  }
+  h2{
+    font-size: 30px;
+    margin: 40px auto;
+    font-weight: normal;
+  }
+  p{
+    font-size: 15px;
+    padding: 7px;
+    border-bottom: 1px solid rgb(211,214,219);
+    margin: auto;
+    color: #444;
+  }
+  a{
+    line-height: 40px;
+    color: #444;
+  }
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
   color: rgb(0,185,0);
   background: rgb(244,245,246);
+
   .form-inputs{
-    color: #333;
+    background: white;
+    color: #444;
+    border: 1px solid rgb(211,214,219);
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+
     .form-group{
-      &.user_email{
-        width: 50%;
+      &.user_email,&.user_password,&.user_password_confirmation,&.user_name{
+        width: 100%;
         line-height: 20px;
-        input#user_email.form-control.string.email.optional{
+        input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
           background: white;
         }
-      }
-      &.user_password{
-        width: 50%;
-        line-height: 20px;
+        input{
+          width: 97%;
+          margin: auto;
+          height: 30px;
+          font-size: 15px;
+          border: none;
+          padding-left: 5px;
+        }
       }
       .control-label{
         display: none;
       }
+      label{
+        color: #444;
+      }
 
+    }
+    .border{
+      height: 1px;
+      width: 100%;
+      background: #f4f4f4;
+    }
+  }
+  .form-actions{
+    margin: 10px auto;
+    input.btn.btn-default{
+      width: 30%;
+      line-height: 25px;
+      border-radius: 0;
+      border: 1px solid rgb(211,214,219);
+      font-size: 15px;
     }
   }
 }

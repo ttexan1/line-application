@@ -1,17 +1,16 @@
 <h1>LINE</h1>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
+  <div class="form-inputs sign-in">
     <p>メールログイン</p>
-
-    <%= f.input :email, required: false, placeholder: "email" %>
-    <%= f.input :password, required: false, placeholder: "password" %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <%= f.input :email, required: false, placeholder: "メールアドレス" %>
+    <div class="border"></div>
+    <%= f.input :password, required: false, placeholder: "パスワード" %>
   </div>
-
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "ログイン" %>
   </div>
+  <%= f.input :remember_me, as: :boolean, label: "自動ログイン" if devise_mapping.rememberable? %>
 <% end %>
 
 <%= render "devise/shared/links" %>
