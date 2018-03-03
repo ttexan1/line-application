@@ -1,9 +1,16 @@
-= simple_form_for @user, url: user_path(current_user), method: :put do |f|
-  - if @user.errors.any?
-        #error_explanation.alert.alert-danger
-          ul
-            - @user.errors.full_messages.each do |message|
-              li = message
-  = f.input :name
-  = f.input :thumbnail
-  = f.submit class: "btn btn-default"
+.user.edit
+  .top-bar 設定
+  .wrapper
+    .image = image_tag(@user.thumbnail, size: "80x80", alt: "#{@user.name}の写真") if @user.thumbnail
+    .information
+      = simple_form_for @user, url: user_path(current_user), method: :put do |f|
+        - if @user.errors.any?
+              #error_explanation.alert.alert-danger
+                ul
+                  - @user.errors.full_messages.each do |message|
+                    li = message
+        = f.input :name, label: "名前"
+        = f.input :comment, label: "ステータスメッセージ"
+        = f.input :search_id, label: "ID"
+        = f.input :email, label: "メールアドレス"
+        = f.submit "変更する", class: "btn btn-default"
