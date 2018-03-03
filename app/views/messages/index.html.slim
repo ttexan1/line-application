@@ -3,6 +3,6 @@
   .messages#messages
     = render @messages
 
-  #paginator = link_to_next_page @messages, 'next',remote: true
+  #paginator = link_to_next_page @messages, 'next', id: 'read_more', remote: true
 
-  /= render 'form',group: @group
+  = render 'form',group: @group

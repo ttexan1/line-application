@@ -1,0 +1,24 @@
+.body-devise{
+  color: rgb(0,185,0);
+  background: rgb(244,245,246);
+  .form-inputs{
+    color: #333;
+    .form-group{
+      &.user_email{
+        width: 50%;
+        line-height: 20px;
+        input#user_email.form-control.string.email.optional{
+          background: white;
+        }
+      }
+      &.user_password{
+        width: 50%;
+        line-height: 20px;
+      }
+      .control-label{
+        display: none;
+      }
+
+    }
+  }
+}

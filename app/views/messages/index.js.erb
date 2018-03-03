@@ -1,2 +1,2 @@
 $('<%= escape_javascript render(@messages) %>').appendTo('#messages');
-$('#paginator').html('<%= escape_javascript(link_to_next_page @messages, "next", remote: true) %>');
+$('#paginator').html('<%= escape_javascript(link_to_next_page @messages, "next", id: "read_more", remote: true) %>');
