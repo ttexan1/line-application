@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(version: 20180227051804) do
     t.integer "from_user_id", null: false
     t.integer "to_user_id", null: false
     t.integer "status", default: 0
+    t.string "access_token", limit: 6, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["access_token"], name: "index_relationships_on_access_token", unique: true
     t.index ["from_user_id"], name: "index_relationships_on_from_user_id"
     t.index ["to_user_id"], name: "index_relationships_on_to_user_id"
   end
