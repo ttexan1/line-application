@@ -8,7 +8,7 @@
     = simple_form_for @group, url: group_path(@group), method: :put do |f|
       = f.hidden_field :status, value: :more
       .thum = f.input :thumbnail, as: :file, label: ""
-      = f.submit "変更する", class: "btn btn-default"
+      = f.submit "変更を適用する", class: "btn btn-default"
 
     h2 グループメンバー
 
