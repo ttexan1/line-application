@@ -12,7 +12,6 @@ class GroupsController < ApplicationController
     @group = Group.new
     @group.users_groups.build
   end
-
   def create
     @group = Group.new(group_params)
     if @group.save

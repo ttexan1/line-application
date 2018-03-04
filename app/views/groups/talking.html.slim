@@ -1,6 +1,6 @@
 .group.index
   .boxs
-    h2 トーク一覧
+    h2.top-bar トーク一覧
     - @groups.each do |group|
       .box
         .mask = link_to "", group_messages_path(group)

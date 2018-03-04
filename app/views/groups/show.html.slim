@@ -7,3 +7,6 @@
       .box
         .image = image_tag(user.thumbnail, size: "80x80", alt: "") if user.thumbnail
         .mask = link_to "", relationship_path(user)
+
+
+  = link_to "グループを編集する", edit_group_path(@group)

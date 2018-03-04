@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:update, :edit]
   resources :relationships, only: [:new, :show, :create]
   resources :groups do
+    resources :users_groups, only: :create
     collection do
       get 'talking'
     end

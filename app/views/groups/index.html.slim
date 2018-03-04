@@ -1,5 +1,6 @@
 .group.index
   .boxs
+    h2 プロフィール
     .box.me
       .image = image_tag(current_user.thumbnail, size: "80x80", alt: "") if current_user.thumbnail
       .name = link_to current_user.name, edit_user_path(current_user)
