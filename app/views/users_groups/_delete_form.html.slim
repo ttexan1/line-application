@@ -1,0 +1,5 @@
+- group ||= nil
+- user ||= nil
+- users_group = UsersGroup.find_by(group_id: group.id, user_id:user.id)
+
+= link_to "削除", users_group_path(users_group), method: :delete

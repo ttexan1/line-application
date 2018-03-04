@@ -1,1 +1,7 @@
-
+.boxs.members
+  h2 グループメンバー
+  - @group.other_member(current_user).each do |user|
+    .box
+      .imag = image_tag(user.thumbnail, size: "80x80", alt: user.name) if user.thumbnail
+      = render 'users_groups/delete_form', user: user, group: @group
+  = render 'users_groups/form', group: @group

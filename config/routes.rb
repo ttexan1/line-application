@@ -5,10 +5,10 @@ Rails.application.routes.draw do
     registrations: 'user/registrations',
     sessions: 'user/sessions'
   }
+  resources :users_groups, only: [:create, :destroy]
   resources :users, only: [:update, :edit]
   resources :relationships, only: [:new, :show, :create]
   resources :groups do
-    resources :users_groups, only: :create
     collection do
       get 'talking'
     end

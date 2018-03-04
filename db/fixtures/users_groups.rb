@@ -36,5 +36,10 @@ end
 UsersGroup.seed do |s|
   s.id = 8
   s.user_id = 5
-  s.group_id = 3
+  s.group_id = 1
+end
+UsersGroup.seed do |s|
+  s.id = 9
+  s.user_id = 6
+  s.group_id = 1
 end

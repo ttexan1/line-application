@@ -12,6 +12,12 @@ class GroupsController < ApplicationController
     @group = Group.new
     @group.users_groups.build
   end
+  def edit
+    @group = current_user.groups.find(params[:id])
+    @room = @group.room(current_user)
+  end
+  def update
+  end
   def create
     @group = Group.new(group_params)
     if @group.save

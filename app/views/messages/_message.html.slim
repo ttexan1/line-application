@@ -3,7 +3,7 @@
     .green
       .content
         .info.time = message.created_at.strftime("%H:%M")
-        p.contents = message.content
+        p.contents = simple_format(message.content)
   - else
     .white
         .image = image_tag(message.user.thumbnail, size: "80x80", alt: "") if message.user.thumbnail
