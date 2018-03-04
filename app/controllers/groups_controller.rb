@@ -11,6 +11,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.users_groups.build
+    @friends = current_user.friends
   end
 
   def create
