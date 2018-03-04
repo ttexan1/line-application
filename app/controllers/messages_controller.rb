@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   def index
     @group = Group.find(params[:group_id])
-    @messages = @group.messages.order('created_at DESC').page(params[:page]).per(7)
+    @messages = @group.messages.order('created_at DESC').page(params[:page]).per(7).includes(:user)
     @room = @group.room(current_user)
   end
   def create
