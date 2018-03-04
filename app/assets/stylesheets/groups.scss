@@ -1,7 +1,3 @@
-// Place all the styles related to the groups controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .group.new{
   .top-bar{
     width: 100%;
@@ -49,22 +45,21 @@
         }
         .add{
           position: absolute;
-          left: 150px;
-          width: 60px;
-          height: 60px;
-          border-radius: 30px;
-          background: #eee;
-          margin: 20px auto;
           a{
             position: absolute;
-            top: 17px;
+            top: 30px;
             left: 0;
             right: 0;
             color: #555;
             text-decoration: none;
             text-align: center;
             font-size: 20px;
+            line-height: 55px;
             display: block;
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            background: #eee;
           }
           // .action{
           //   position: absolute;
