@@ -12,7 +12,7 @@
 
     h2 グループメンバー
 
-    - @group.other_member(current_user).each do |user|
+    - @group.users.each do |user|
       .box
         .image = image_tag(user.thumbnail, size: "60x60", alt: user.name) if user.thumbnail
         = render 'users_groups/delete_form', user: user, group: @group

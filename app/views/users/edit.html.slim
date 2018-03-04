@@ -17,8 +17,4 @@
         = f.input :email, label: "メールアドレス"
         .thum = f.input :thumbnail, as: :file, label: ""
         br
-        /- if @user.persisted? && @user.thumbnail?
-        /  label
-        /    = f.check_box :remove_thumbnail
-        /    | 削除
         = f.submit "変更する", class: "btn btn-default"

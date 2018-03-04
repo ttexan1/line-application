@@ -9,8 +9,13 @@ class UsersGroupsController < ApplicationController
   def destroy
     @users_group = UsersGroup.find(params[:id])
     @group = Group.find(@users_group.group_id)
-    @users_group.destroy!
-    redirect_to edit_group_path(@group)
+    if @users_group.user_id == current_user.id
+      @users_group.destroy!
+      redirect_to groups_path
+    else
+      @users_group.destroy!
+      redirect_to edit_group_path(@group)
+    end
   end
 
   private

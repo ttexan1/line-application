@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :to_users, through: :to_user_relationships
 
   validates :name, presence: true
+  
   mount_uploader :thumbnail, ImageUploader
 
   def friends
