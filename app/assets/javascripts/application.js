@@ -19,14 +19,13 @@
 
 
 $(window).scroll( function() {
-      // console.log($(window).height());
-      // console.log("$(window).height()");
-     var pager = $("#read_more");
-     var scrollBottom = $(window).scrollTop() + $(window).height();
-     if( scrollBottom > pager.offset().top ) {
-           if(!$("#read_more").hasClass("displayed")){
-               $("#read_more").addClass("displayed");
-               $('#read_more').trigger("click");
-           }
-     }
+  if($('#read_more').length < 1) return;
+  var pager = $("#read_more");
+  var scrollBottom = $(window).scrollTop() + $(window).height();
+  if( scrollBottom > pager.offset().top ) {
+    if(!$("#read_more").hasClass("displayed")){
+      $("#read_more").addClass("displayed");
+      $('#read_more').trigger("click");
+    }
+  }
 });

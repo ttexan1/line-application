@@ -13,18 +13,15 @@
         = f.input :comment, label: "ステータスメッセージ"
         = f.input :search_id, label: "ID"
         = f.input :email, label: "メールアドレス"
+        = f.input :thumbnail, as: :file
         
-        /- if @user.thumbnail?
-        /  .thumbnail
-        /    = image_tag @user.thumbnail.url
+        /= f.file_field :thumbnail
+        /= f.hidden_field :thumbnail_cache
         br
-        = f.label :thumbnail
-        br
-        = f.file_field :thumbnail
-        = f.hidden_field :thumbnail_cache
-        - if @user.persisted? && @user.thumbnail?
-          label
-            = f.check_box :remove_thumbnail
-            |  画像を削除
+        /- if @user.persisted? && @user.thumbnail?
+        /  label
+        /    = f.check_box :remove_thumbnail
+        /    | 削除
+        /.action
 
         = f.submit "変更する", class: "btn btn-default"

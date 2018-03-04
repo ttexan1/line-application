@@ -1,6 +1,7 @@
 .message
   - if message.user == current_user
     .green
+      p = message.created_at.strftime("%H/%m")
       p = message.content
   - else
     .white
