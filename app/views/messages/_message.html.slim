@@ -1,10 +1,11 @@
 .message
   - if message.user == current_user
     .green
-      p = message.created_at.strftime("%H/%m")
+      .time = message.created_at.strftime("%H:%M")
       p = message.content
   - else
     .white
+      .time = message.created_at.strftime("%H:%M")
       .image = image_tag(message.user.thumbnail, size: "80x80", alt: "") if message.user.thumbnail
       .post-man = message.user.name
       p = message.content
