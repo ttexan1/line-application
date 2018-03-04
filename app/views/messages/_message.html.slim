@@ -7,8 +7,9 @@
   - else
 
     .white
-      .image = image_tag(message.user.thumbnail, size: "80x80", alt: "") if message.user.thumbnail
+      .image = image_tag(message.user.thumbnail, size: "60x60", alt: "") if message.user.thumbnail
       .info.post-man = message.user.name
       .content
-        .contents = simple_format(message.content)
-        .info.time = message.created_at.strftime("%H:%M")
+        .contents
+          = simple_format(message.content)
+          .info.time = message.created_at.strftime("%H:%M")

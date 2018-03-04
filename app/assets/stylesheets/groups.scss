@@ -1,9 +1,44 @@
-.boxs.members{
+.group.index{
+  h2{
+    font-size: 20px;
+    padding: 15px;
+  }
   .box{
-    .image{
-      font-size: 5px;
-      margin-right: 10px;
+    position: relative;
+    .comment{
+      position: absolute;
+      right: 20px;
     }
+  }
+}
+.group.show{
+  .thumbnail{
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    background: #eee;
+    overflow: hidden;
+    margin: 10px auto;
+  }
+  p{
+    text-align: center;
+    margin: 10px;
+  }
+  .members{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    .member{
+      .image{
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        background: #eee;
+        overflow: hidden;
+        margin: 10px auto;
+      }
+    }
+
   }
 }
 .group.new{
@@ -106,5 +141,38 @@
         }
       }
     }
+  }
+}
+.group.edit{
+  h2{
+    margin: 15px 0;
+    padding: 10px;
+  }
+  .image{
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    background: #eee;
+    overflow: hidden;
+    margin: 10px auto;
+    cursor: pointer;
+    .mask{
+      position: absolute;
+      top: 90px;
+      width: 80px;
+      height: 80px;
+      border-radius: 40px;
+      &:hover{
+        background: rgba(255,255,255,.3);
+      }
+    }
+  }
+  .thum{
+    display: none;
+  }
+  input.btn{
+    width: 100px;
+    cursor: pointer;
+    margin: auto;
   }
 }

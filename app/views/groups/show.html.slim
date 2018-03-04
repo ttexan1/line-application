@@ -1,12 +1,16 @@
 .group.show
-  p = @room.name
-  p = link_to "トーク画面へ", group_messages_path(@group)
-  .boxs.members
-    h2 グループメンバー
+  .top-bar グループ詳細
+  .thumbnail = image_tag(@room.thumbnail, size: "80x80", alt:"#{@room.name}のサムネイル") if @room.thumbnail
+  p
+    | グループ名：
+    = @room.name
+
+  h2 グループメンバー
+  .members
     - @group.other_member(current_user).each do |user|
-      .box
-        .image = image_tag(user.thumbnail, size: "80x80", alt: "") if user.thumbnail
+      .member
+        .image = image_tag(user.thumbnail, size: "40x40", alt: "") if user.thumbnail
         .mask = link_to "", relationship_path(user)
 
-
-  = link_to "グループを編集する", edit_group_path(@group)
+  p = link_to "トーク画面へ", group_messages_path(@group)
+  p = link_to "グループを編集する", edit_group_path(@group)

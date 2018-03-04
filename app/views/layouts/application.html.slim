@@ -10,10 +10,10 @@ html
   body
     - if user_signed_in?
       .side-bar
-        .box = link_to "人々", groups_path
+        .box = link_to "トップ", groups_path
         .box = link_to "トーク", talking_groups_path
         .box = link_to "編集", edit_user_path(current_user)
-        .box = link_to "グループ", new_group_path
+        .box = link_to "グループ作成", new_group_path
         .box = link_to "探す", new_relationship_path
         .box = link_to "ログアウト", destroy_user_session_path, method: :delete
         .box.under = link_to "...", "#"

@@ -1,17 +1,24 @@
 .group.index
+  .top-bar トップ
   .boxs
     h2 プロフィール
     .box.me
-      .image = image_tag(current_user.thumbnail, size: "80x80", alt: "") if current_user.thumbnail
-      .name = link_to current_user.name, edit_user_path(current_user)
+      .mask = link_to "", edit_user_path(current_user)
+      .image = image_tag(current_user.thumbnail, size: "60x60", alt: "") if current_user.thumbnail
+      .name = current_user.name
+      .comment = current_user.comment
   .boxs
     h2 グループ
     - @more_groups.each do |group|
-      .box.group
-        .image = image_tag(group.thumbnail, size: "80x80", alt: "") if group.thumbnail
-        .name = link_to group.name, group_path(group)
+      .box
+        .mask = link_to "", group_path(group)
+        .image = image_tag(group.thumbnail, size: "60x60", alt: "") if group.thumbnail
+        .name = group.name
+  .boxs
     h2 友達
     - @pair_groups.each do |group|
-      .box.friend
-        .image = image_tag(group.room(current_user).thumbnail, size: "80x80", alt: "") if group.room(current_user).thumbnail
-        .name = link_to group.room(current_user).name, relationship_path(group.room(current_user))
+      .box
+        .mask = link_to "", relationship_path(group.room(current_user))
+        .image = image_tag(group.room(current_user).thumbnail, size: "60x60", alt: "") if group.room(current_user).thumbnail
+        .name = group.room(current_user).name
+        .comment = current_user.comment

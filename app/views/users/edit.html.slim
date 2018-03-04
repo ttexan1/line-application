@@ -1,7 +1,9 @@
 .user.edit
-  h2.top-bar 設定
+  .top-bar 設定
   .wrapper
-    .image = image_tag(@user.thumbnail, size: "80x80", alt: "#{@user.name}の写真") if @user.thumbnail
+    #image.image
+      = image_tag(@user.thumbnail, size: "80x80", alt: "#{@user.name}の写真") if @user.thumbnail
+      .mask
     .information
       = simple_form_for @user, url: user_path(current_user), method: :put do |f|
         - if @user.errors.any?
@@ -13,14 +15,10 @@
         = f.input :comment, label: "ステータスメッセージ"
         = f.input :search_id, label: "ID"
         = f.input :email, label: "メールアドレス"
-        = f.input :thumbnail, as: :file
-
-        - if @user.thumbnail?
-          .image = image_tag(@user.thumbnail.url, size: "80x80", alt: "#{@user.name}の写真") if @user.thumbnail
+        .thum = f.input :thumbnail, as: :file, label: ""
         br
-        - if @user.persisted? && @user.thumbnail?
-          label
-            = f.check_box :remove_thumbnail
-            | 削除
-        .action
-          = f.submit "変更する", class: "btn btn-default"
+        /- if @user.persisted? && @user.thumbnail?
+        /  label
+        /    = f.check_box :remove_thumbnail
+        /    | 削除
+        = f.submit "変更する", class: "btn btn-default"

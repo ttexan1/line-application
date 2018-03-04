@@ -1,5 +1,13 @@
 .relationship.show
-  .boxs
-    .box
-      .image = image_tag(@friend.thumbnail, size: "80x80", alt: "") if @friend.thumbnail
-      p = @friend.name
+  .top-bar 友達の詳細
+  .wrapper
+    #image.image
+      = image_tag(@friend.thumbnail, size: "80x80", alt: "#{@friend.name}の写真") if @friend.thumbnail
+      .mask
+    .information
+        p
+          | 名前：
+          = @friend.name
+        p
+          | 一言：
+          = @friend.comment

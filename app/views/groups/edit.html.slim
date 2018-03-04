@@ -1,7 +1,19 @@
-.boxs.members
-  h2 グループメンバー
-  - @group.other_member(current_user).each do |user|
-    .box
-      .imag = image_tag(user.thumbnail, size: "80x80", alt: user.name) if user.thumbnail
-      = render 'users_groups/delete_form', user: user, group: @group
-  = render 'users_groups/form', group: @group
+.group.edit
+  .boxs.members
+    .top-bar グループ編集
+    h2 サムネイルを変更
+    #image.image
+      = image_tag(@group.thumbnail, size: "80x80", alt: "") if @group.thumbnail
+      .mask
+    = simple_form_for @group, url: group_path(@group), method: :put do |f|
+      = f.hidden_field :status, value: :more
+      .thum = f.input :thumbnail, as: :file, label: ""
+      = f.submit "変更する", class: "btn btn-default"
+
+    h2 グループメンバー
+
+    - @group.other_member(current_user).each do |user|
+      .box
+        .image = image_tag(user.thumbnail, size: "60x60", alt: user.name) if user.thumbnail
+        = render 'users_groups/delete_form', user: user, group: @group
+    = render 'users_groups/form', group: @group

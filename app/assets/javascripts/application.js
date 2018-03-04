@@ -30,3 +30,16 @@ $(window).scroll( function() {
     }
   }
 });
+
+$(function(){
+  if($('.user.edit').length < 1) return;
+  $('#image').on('click',function(){
+    $('input#user_thumbnail').trigger('click');
+  })
+})
+$(function(){
+  if($('.group.edit').length < 1) return;
+  $('#image').on('click',function(){
+    $('input#group_thumbnail').trigger('click');
+  })
+})

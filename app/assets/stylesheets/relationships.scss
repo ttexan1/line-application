@@ -1,1 +1,19 @@
-
+.relationship.show{
+  .wrapper{
+    display: flex;
+    flex-direction: row;
+    .image{
+      width: 80px;
+      height: 80px;
+      border-radius: 40px;
+      overflow: hidden;
+      margin: 15px;
+    }
+    .information{
+      margin: 15px;
+      p{
+        margin: 5px;
+      }
+    }
+  }
+}

@@ -17,6 +17,13 @@ class GroupsController < ApplicationController
     @room = @group.room(current_user)
   end
   def update
+    @group = current_user.groups.find(params[:id])
+    update = @group.update(group_only_params)
+    if @group.save
+      redirect_to groups_path
+    else
+      render 'edit'
+    end
   end
   def create
     @group = Group.new(group_params)
@@ -39,6 +46,9 @@ class GroupsController < ApplicationController
           :id, :user_id, :group_id
         ]
       )
+    end
+    def group_only_params
+      params.require(:group).permit(:name, :status, :thumbnail, :thumbnail_cache, :remove_thumbnail)
     end
 
 end
