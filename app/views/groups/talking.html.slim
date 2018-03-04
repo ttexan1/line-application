@@ -4,7 +4,7 @@
     - @groups.each do |group|
       .box
         .mask = link_to "", group_messages_path(group)
-        .image = image_tag(group.room(current_user).thumbnail) if group.room(current_user).thumbnail
+        .image = image_tag(group.room(current_user).thumbnail, size: "80x80", alt: "") if group.room(current_user).thumbnail
         .contents
           .name = group.room(current_user).name
           .last_msg = group.messages.last.content if group.messages.last

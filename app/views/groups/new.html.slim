@@ -12,8 +12,7 @@
         = f.input :name, label: "グループ名"
         = f.hidden_field :status, value: :more
         = f.nested_fields_for :users_groups do |a|
-          = a.input :user_id, collection: (@friends.map{|s| [s.name, s.id]}), label: "ユーザー名"
-          = a.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button'
-        = f.add_nested_fields_link :users_groups , '+', class: 'btn btn-primary', role: 'button'
-
-        = f.submit "グループを作成"
+          = a.input :user_id, collection: (current_user.friends.map{|s| [s.name, s.id]}), label: "ユーザー名"
+          = a.remove_nested_fields_link 'Delete', class: 'btn btn-danger'
+        .add = f.add_nested_fields_link :users_groups , '+', class: 'btn btn-primary', role: 'button'
+        .action = f.submit "グループを作成"

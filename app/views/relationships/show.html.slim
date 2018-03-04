@@ -1,5 +1,5 @@
 .relationship.show
   .boxs
     .box
-      .image = image_tag(@friend.thumbnail) if @friend.thumbnail
+      .image = image_tag(@friend.thumbnail, size: "80x80", alt: "") if @friend.thumbnail
       p = @friend.name

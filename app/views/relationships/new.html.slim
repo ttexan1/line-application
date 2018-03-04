@@ -6,7 +6,7 @@
   - @users.each do |user|
     .boxs
       .box
-        .image = image_tag(user.thumbnail) if user.thumbnail
+        .image = image_tag(user.thumbnail, size: "80x80", alt: "") if user.thumbnail
         .name = user.name
         = simple_form_for @relationship, url: relationships_path, method: :post do |f|
           = f.hidden_field :to_user_id, value: user.id

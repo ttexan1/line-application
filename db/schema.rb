@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20180227051804) do
     t.integer "group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["group_id", "user_id"], name: "index_users_groups_on_group_id_and_user_id", unique: true
     t.index ["group_id"], name: "index_users_groups_on_group_id"
     t.index ["user_id"], name: "index_users_groups_on_user_id"
   end

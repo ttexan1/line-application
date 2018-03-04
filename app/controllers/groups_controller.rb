@@ -11,7 +11,6 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.users_groups.build
-    @friends = current_user.friends
   end
 
   def create
@@ -30,11 +29,9 @@ class GroupsController < ApplicationController
   private
     def group_params
       params.require(:group).permit(
-        :name, :status,
+        :name, :status, :thumbnail, :thumbnail_cache, :remove_thumbnail,
         users_groups_attributes:[
-          :id,
-          :user_id,
-          :group_id
+          :id, :user_id, :group_id
         ]
       )
     end
