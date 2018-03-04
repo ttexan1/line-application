@@ -1,5 +1,5 @@
 .user.edit
-  .top-bar 設定
+  h2.top-bar 設定
   .wrapper
     .image = image_tag(@user.thumbnail, size: "80x80", alt: "#{@user.name}の写真") if @user.thumbnail
     .information
@@ -14,14 +14,13 @@
         = f.input :search_id, label: "ID"
         = f.input :email, label: "メールアドレス"
         = f.input :thumbnail, as: :file
-        
-        /= f.file_field :thumbnail
-        /= f.hidden_field :thumbnail_cache
-        br
-        /- if @user.persisted? && @user.thumbnail?
-        /  label
-        /    = f.check_box :remove_thumbnail
-        /    | 削除
-        /.action
 
-        = f.submit "変更する", class: "btn btn-default"
+        - if @user.thumbnail?
+          .image = image_tag(@user.thumbnail.url, size: "80x80", alt: "#{@user.name}の写真") if @user.thumbnail
+        br
+        - if @user.persisted? && @user.thumbnail?
+          label
+            = f.check_box :remove_thumbnail
+            | 削除
+        .action
+          = f.submit "変更する", class: "btn btn-default"

@@ -1,16 +1,20 @@
 .group.new
-  = simple_form_for @group, url: groups_path, method: :post do |f|
-    - if @group.errors.any?
-          #error_explanation.alert.alert-danger
-            ul
-              - @group.errors.full_messages.each do |message|
-                li = message
-    = f.input :name
-    = f.hidden_field :status, value: :more
-    = f.simple_fields_for :users_groups do |a|
-      = a.input :user_id
-    = f.simple_fields_for :users_groups do |a|
-      = a.input :user_id
-    = f.simple_fields_for :users_groups do |a|
-      = a.input :user_id
-    = f.submit
+  h2.top-bar グループ作成
+  .wrapper
+    .information#group-form
+      = simple_form_for @group, url: groups_path, method: :post do |f|
+        - if @group.errors.any?
+              #error_explanation.alert.alert-danger
+                ul
+                  - @group.errors.full_messages.each do |message|
+                    li = message
+        = f.input :thumbnail, as: :file, label: "グループ画像"
+        = f.input :name, label: "グループ名"
+        = f.hidden_field :status, value: :more
+        #user-form
+          = f.simple_fields_for :users_groups do |a|
+            = a.input :user_id, label: "ユーザー名"
+        = f.submit "グループを作成"
+
+        #add-form
+          = link_to 'ユーザーを追加', remote: true

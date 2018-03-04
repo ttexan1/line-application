@@ -1,3 +1,66 @@
 // Place all the styles related to the groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.group.new{
+  .top-bar{
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    font-weight: lighter;
+    height: 20px;
+    line-height: 20px;
+    background: #2d3649;
+  }
+  .wrapper{
+    display: flex;
+    flex-direction: row;
+    .image{
+      width: 80px;
+      height: 80px;
+      border-radius: 40px;
+      overflow: hidden;
+      margin: 15px;
+    }
+    .information{
+      margin: 15px;
+      form.simple_form{
+        color: #333;
+        .form-group{
+          height: 30px;
+          position: relative;
+          label{
+            font-size: 13px;
+          }
+          input{
+            color: #7788aa;
+            position: absolute;
+            left: 150px;
+            font-size: 12px;
+            line-height: 20px;
+            &:focus{
+              outline: none;
+              border: 1px solid #ddd;
+            }
+          }
+        }
+      }
+      #add-form{
+        width: 100px;
+        height: 30px;
+        border-radius: 3px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 30px;
+        border: 1px solid #999;
+        a{
+          text-decoration: none;
+        }
+        &:hover{
+          background: #eee;
+        }
+      }
+    }
+  }
+}
