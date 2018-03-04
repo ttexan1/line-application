@@ -3,7 +3,7 @@
   .wrapper
     #image.image
       = image_tag(@user.thumbnail, size: "80x80", alt: "#{@user.name}の写真") if @user.thumbnail
-      .mask
+        .mask
     .information
       = simple_form_for @user, url: user_path(current_user), method: :put do |f|
         - if @user.errors.any?

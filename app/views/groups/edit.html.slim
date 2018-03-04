@@ -4,7 +4,7 @@
     h2 サムネイルを変更
     #image.image
       = image_tag(@group.thumbnail, size: "80x80", alt: "") if @group.thumbnail
-      .mask
+        .mask
     = simple_form_for @group, url: group_path(@group), method: :put do |f|
       = f.hidden_field :status, value: :more
       .thum = f.input :thumbnail, as: :file, label: ""
