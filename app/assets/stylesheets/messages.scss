@@ -7,16 +7,17 @@
     margin: 0 10px 100px;
     .message{
       position: relative;
-      height: 80px;
+      margin: 20px auto;
       .green{
-        p{
-          background: rgb(190,241,140);
-        }
         .content{
           display: flex;
           flex-direction: row;
-          position: absolute;
+          max-width: 250px;
           right: 10px;
+          .contents{
+            border-radius: 10px;
+            background: rgb(190,241,140);
+          }
           .time{
             margin-right: 5px;
             margin-top: 5px;
@@ -42,16 +43,15 @@
         .content{
           display: flex;
           flex-direction: row;
-          position: absolute;
-          top: 20px;
-          left: 44px;
-          p{
+          max-width: 295px;
+          .contents{
+            margin: 20px 0 0 45px;
             background: rgb(228,232,235);
+            border-radius: 10px;
           }
           .time{
             margin-left: 5px;
-            margin-top: 5px;
-
+            margin-top: 25px;
           }
         }
       }
@@ -60,12 +60,7 @@
       }
       p{
         padding: 8px 10px;
-        border-radius: 10px;
         font-size: 15px;
-        &.contents{
-          max-width: 250px;
-          overflow: scroll;
-        }
       }
     }
   }

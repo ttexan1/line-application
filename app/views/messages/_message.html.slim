@@ -3,11 +3,12 @@
     .green
       .content
         .info.time = message.created_at.strftime("%H:%M")
-        p.contents = simple_format(message.content)
+        .contents = simple_format(message.content)
   - else
+
     .white
-        .image = image_tag(message.user.thumbnail, size: "80x80", alt: "") if message.user.thumbnail
-        .info.post-man = message.user.name
-        .content
-          p.contents = message.content
-          .info.time = message.created_at.strftime("%H:%M")
+      .image = image_tag(message.user.thumbnail, size: "80x80", alt: "") if message.user.thumbnail
+      .info.post-man = message.user.name
+      .content
+        .contents = simple_format(message.content)
+        .info.time = message.created_at.strftime("%H:%M")
