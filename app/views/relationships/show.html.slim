@@ -11,3 +11,5 @@
         p
           | 一言：
           = @friend.comment
+        p
+          = link_to "トークへ", group_messages_path(@group)

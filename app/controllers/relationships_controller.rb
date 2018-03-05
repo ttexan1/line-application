@@ -3,6 +3,7 @@ class RelationshipsController < ApplicationController
   def show
     @friend = User.find(params[:id])
     @relationship = Relationship.find_by_from_or_to(@friend, current_user)
+    @group = @relationship.group
   end
   def new
     friend_ids = current_user.friends.pluck(:id).push(current_user.id)
