@@ -1,6 +1,7 @@
 - group ||= nil
 - users_group = UsersGroup.new
 
+h2 メンバーを追加
 = simple_form_for users_group, url: users_groups_path, method: :post do |f|
   = f.hidden_field :group_id, value: group.id
   = f.input :user_id, collection: current_user.friends, label: "選択"
