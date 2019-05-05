@@ -5,9 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+ruby '2.5.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.5'
+gem 'rails', '~> 5.2.2'
 gem 'sqlite3'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
@@ -29,6 +29,7 @@ gem 'jquery-turbolinks'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'nested_form_fields'
+gem 'bootsnap', '>= 1.1.0', require: false
 
 
 

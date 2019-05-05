@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root "groups#index"
   devise_for :user, controllers: {
     registrations: 'user/registrations',

@@ -4,7 +4,7 @@
     h2 プロフィール
     .box.me
       .mask = link_to "", edit_user_path(current_user)
-      .image = image_tag(current_user.thumbnail, size: "60x60", alt: "") if current_user.thumbnail
+      /.image = image_tag(current_user.thumbnail, size: "60x60", alt: "") if current_user.thumbnail
       .name = current_user.name
       .comment = current_user.comment
   .boxs
@@ -12,13 +12,13 @@
     - @more_groups.each do |group|
       .box
         .mask = link_to "", group_path(group)
-        .image = image_tag(group.thumbnail, size: "60x60", alt: "") if group.thumbnail
+        /.image = image_tag(group.thumbnail, size: "60x60", alt: "") if group.thumbnail
         .name = group.name
   .boxs
     h2 友達
     - @pair_groups.each do |group|
       .box
         .mask = link_to "", relationship_path(group.room(current_user))
-        .image = image_tag(group.room(current_user).thumbnail, size: "60x60", alt: "") if group.room(current_user).thumbnail
+        /.image = image_tag(group.room(current_user).thumbnail, size: "60x60", alt: "") if group.room(current_user).thumbnail
         .name = group.room(current_user).name
         .comment = current_user.comment
